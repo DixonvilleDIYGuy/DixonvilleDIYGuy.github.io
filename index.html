@@ -8,54 +8,150 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-            background-color: #fcfcfc;
-            color: #222;
+            background: #f6f7f4;
+            color: #202124;
             line-height: 1.6;
         }
+
+        a {
+            color: #214d2d;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
         header {
-            padding: 40px 20px;
-            max-width: 1100px;
+            padding: 40px 20px 20px;
+            max-width: 1200px;
             margin: 0 auto;
         }
-        .logo { font-size: 1.5rem; font-weight: bold; color: #333; margin-bottom: 40px; }
-        .intro-text { font-size: 2.2rem; font-weight: 700; max-width: 800px; margin-bottom: 50px; line-height: 1.3; }
-        
-        /* Grid Layout */
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-            gap: 40px;
-            max-width: 1100px;
-            margin: 0 auto 60px auto;
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #1b1b1b;
+            letter-spacing: 0.02em;
+            margin-bottom: 32px;
+        }
+
+        .intro-text {
+            font-size: clamp(2rem, 3vw, 3rem);
+            font-weight: 800;
+            max-width: 900px;
+            line-height: 1.2;
+            margin-bottom: 24px;
+        }
+
+        .subheading {
+            color: #4d5a4c;
+            font-size: 1.05rem;
+            max-width: 780px;
+        }
+
+        .section {
+            max-width: 1200px;
+            margin: 0 auto 60px;
             padding: 0 20px;
         }
-        @media (max-width: 600px) {
-            .grid-container { grid-template-columns: 1fr; }
-            .intro-text { font-size: 1.6rem; }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 28px;
         }
-        
-        /* Cards */
-        .card {
+
+        .category-card {
             background: #fff;
-            border-radius: 8px;
+            border: 1px solid #e5e7e1;
+            border-radius: 12px;
             overflow: hidden;
-            cursor: pointer;
-            transition: transform 0.2s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
-        .card:hover { transform: translateY(-4px); }
+
+        .category-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.06);
+        }
+
         .card-image {
-            width: 100%;
-            height: 250px;
-            background-color: #ddd; /* Temporary gray box until you add images */
+            height: 180px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #aaa;
-            font-weight: 500;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            font-size: 0.78rem;
+            background: linear-gradient(135deg, #2f5d3d, #7ca778);
         }
-        .card-content { padding: 25px 0; }
-        .card-title { font-size: 1.4rem; color: #111; margin-bottom: 10px; font-weight: 600; }
-        .card-description { color: #555; font-size: 1rem; }
+
+        .card-body {
+            padding: 22px 20px 18px;
+        }
+
+        .card-title {
+            font-size: 1.6rem;
+            font-weight: 750;
+            margin-bottom: 10px;
+            color: #1f2a1f;
+        }
+
+        .card-description {
+            color: #58665d;
+            margin-bottom: 18px;
+            font-size: 0.98rem;
+        }
+
+        .resource-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            gap: 8px;
+        }
+
+        .resource-list li {
+            border-top: 1px solid #edf0ea;
+            padding-top: 8px;
+        }
+
+        .resource-list a {
+            color: #1d3b27;
+            font-weight: 600;
+            line-height: 1.5;
+        }
+
+        .resource-list a:hover {
+            color: #2d6b3f;
+        }
+
+        .mini-label {
+            display: inline-block;
+            font-size: 0.72rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #5f6f60;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .bottom-note {
+            max-width: 1200px;
+            margin: 0 auto 80px;
+            padding: 0 20px;
+            color: #54615a;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 700px) {
+            .card-image { height: 150px; }
+            .card-title { font-size: 1.35rem; }
+            .intro-text { font-size: 1.8rem; }
+        }
     </style>
 </head>
 <body>
@@ -63,37 +159,158 @@
     <header>
         <div class="logo">Dixonville DIY Guy</div>
         <h1 class="intro-text">I live in Dixonville. I build, tinker, and share what I learn.</h1>
+        <p class="subheading">
+            A growing collection of solar, off-grid, RV, build, and workshop resources gathered from trusted sources and practical hands-on projects.
+        </p>
     </header>
 
-    <main class="grid-container">
-        <!-- Card 1 -->
-        <div class="card">
-            <div class="card-image">[ Image Holder: Solar Projects ]</div>
-            <div class="card-content">
-                <h2 class="card-title">Living Off Grid & Solar</h2>
-                <p class="card-description">Sharing my journey setting up independent power systems, fixing batteries, and managing an off-grid setup.</p>
+    <main class="section">
+        <div class="category-grid">
+            <!-- Card 1 -->
+            <div class="category-card">
+                <div class="card-image">Solar & Off-Grid</div>
+                <div class="card-body">
+                    <div class="mini-label">Primary Focus</div>
+                    <h2 class="card-title">Living Off Grid & Solar</h2>
+                    <p class="card-description">
+                        Essential power system resources, EG4 products, calculators, and real-world setup advice for building a reliable off-grid lifestyle.
+                    </p>
+                    <ul class="resource-list">
+                        <li><a href="https://signaturesolar.com/all-products/kits-bundles/" target="_blank" rel="noopener">Signature Solar Kits &amp; Bundles</a></li>
+                        <li><a href="https://diysolarforum.com/search/4045709/?q=EG4+6000XP&o=relevance" target="_blank" rel="noopener">DIY Solar Power Forum — EG4 6000XP Search</a></li>
+                        <li><a href="https://eg4electronics.com/wp-content/uploads/2024/04/EG4-6000XP-Manual.pdf" target="_blank" rel="noopener">EG4 6000XP Manual</a></li>
+                        <li><a href="https://eg4electronics.com/wp-content/uploads/2024/04/EG4-6000XP-Inverter-Spec-Sheet.pdf" target="_blank" rel="noopener">EG4 6000XP Inverter Spec Sheet</a></li>
+                        <li><a href="https://eg4electronics.com/wp-content/uploads/2024/06/EG4-LifePower4-Quick-Start-Guide.pdf" target="_blank" rel="noopener">EG4 LifePower4 Quick Start Guide</a></li>
+                        <li><a href="https://eg4electronics.com/wp-content/uploads/2024/06/EG4-LifePower4-Spec-Sheet.pdf" target="_blank" rel="noopener">EG4 LifePower4 Spec Sheet</a></li>
+                        <li><a href="https://eg4electronics.com/wp-content/uploads/2024/04/EG4%C2%AE-LL-S-100AH-User-Manual.pdf" target="_blank" rel="noopener">EG4 LL-S 100AH User Manual</a></li>
+                        <li><a href="https://eg4electronics.com/wp-content/themes/hello-elementor/eg4-solar-panel-string-sizer/" target="_blank" rel="noopener">EG4 Solar Panel String Sizer</a></li>
+                        <li><a href="https://energyreckon.com/" target="_blank" rel="noopener">EnergyReckon — Size Your Off-Grid Solar / Generator</a></li>
+                        <li><a href="https://www.powelab.org/solar/solar-panel-tilt-calculator" target="_blank" rel="noopener">Solar Panel Tilt Calculator</a></li>
+                        <li><a href="https://everydaysolar.com/calculators/" target="_blank" rel="noopener">Everyday Solar Calculators</a></li>
+                        <li><a href="https://www.suncalc.org/" target="_blank" rel="noopener">SunCalc — Solar Position &amp; Planning</a></li>
+                    </ul>
+                </div>
             </div>
-        </div>
 
-        <!-- Card 2 -->
-        <div class="card">
-            <div class="card-image">[ Image Holder: Building ]</div>
-            <div class="card-content">
-                <h2 class="card-title">Growing & Building</h2>
-                <p class="card-description">Unconventional building experiments, working on the property, workshops, and working close with nature.</p>
+            <!-- Card 2 -->
+            <div class="category-card">
+                <div class="card-image">Growing & Building</div>
+                <div class="card-body">
+                    <div class="mini-label">Property & Systems</div>
+                    <h2 class="card-title">Growing &amp; Building</h2>
+                    <p class="card-description">
+                        Practical property upgrades, greywater ideas, simple structures, and building methods for making the land work smarter and cleaner.
+                    </p>
+                    <ul class="resource-list">
+                        <li><a href="https://www.milkwood.net/2012/10/16/building-a-simple-biological-diy-greywater-system/" target="_blank" rel="noopener">Building a Simple DIY Greywater System</a></li>
+                        <li><a href="https://gardenplanner.net/app/" target="_blank" rel="noopener">Garden Planner App</a></li>
+                        <li><a href="https://diysolarforum.com/threads/t-post-brackets.96154/" target="_blank" rel="noopener">DIY Solar Forum — T-Post Brackets</a></li>
+                        <li><a href="https://www.youtube.com/watch?v=02BlKSziK5Q" target="_blank" rel="noopener">Easy Lean-To Shed Build</a></li>
+                        <li><a href="https://www.youtube.com/watch?v=ZKYKxvYF34A" target="_blank" rel="noopener">DIY Ground Mount for Cheap Panels</a></li>
+                        <li><a href="https://static.xtremeownage.com/pages/Projects/Project-Offgrid/" target="_blank" rel="noopener">Project Offgrid — XtremeOwnage</a></li>
+                        <li><a href="https://madcodger.com/" target="_blank" rel="noopener">Madcodger — Projects &amp; Ideas</a></li>
+                        <li><a href="https://www.youtube.com/playlist?list=PL7bvIB2TPsCjkfuZlfNXGO5mroHPXrOq0" target="_blank" rel="noopener">Step-by-Step 12V DIY Systems for Beginners</a></li>
+                        <li><a href="https://www.youtube.com/watch?v=VguSt1IAmBM" target="_blank" rel="noopener">How to Build Expandable Off-Grid Solar Systems</a></li>
+                    </ul>
+                </div>
             </div>
-        </div>
 
-        <!-- Card 3 -->
-        <div class="card">
-            <div class="card-image">[ Image Holder: Tools ]</div>
-            <div class="card-content">
-                <h2 class="card-title">Tools & Gear I Use</h2>
-                <p class="card-description">A curated list of my favorite workshop tools, software apps, and gear that helps me save time and stay productive.</p>
+            <!-- Card 3 -->
+            <div class="category-card">
+                <div class="card-image">Tools & Gear</div>
+                <div class="card-body">
+                    <div class="mini-label">Workshop & Equipment</div>
+                    <h2 class="card-title">Tools &amp; Gear I Use</h2>
+                    <p class="card-description">
+                        Useful gear, installation tools, connection kits, chargers, and equipment to support solar work, RV life, and workshop builds.
+                    </p>
+                    <ul class="resource-list">
+                        <li><a href="https://www.amazon.com/dp/B0CKTFRSZ4/" target="_blank" rel="noopener">ECO-WORTHY Solar Crimper Tool Kit</a></li>
+                        <li><a href="https://www.amazon.com/dp/B09BT91PHN/" target="_blank" rel="noopener">PowGrow PV Combiner Box</a></li>
+                        <li><a href="https://www.amazon.com/dp/B0CJV347T5/" target="_blank" rel="noopener">CNLonQcom Solar Combiner Box</a></li>
+                        <li><a href="https://www.amazon.com/shop/theultima006b/list/2HCHINEQ6VS2E" target="_blank" rel="noopener">Amazon Tool / Parts List</a></li>
+                        <li><a href="https://shop.explorist.life/shop/all-products/mc4-connectors/" target="_blank" rel="noopener">MC4 Connectors — Explorist.life</a></li>
+                        <li><a href="https://www.batterystuff.com/battery-chargers/" target="_blank" rel="noopener">Battery Chargers &amp; Maintainers</a></li>
+                        <li><a href="https://www.currentconnected.com/product/lynx-class-t-power-in-m10/" target="_blank" rel="noopener">Victron Lynx Class-T Power In</a></li>
+                        <li><a href="https://www.vevor.com/other-c_45583/vevor-diesel-heater-dc-12-v-all-in-one-fast-heating-diesel-air-heater-for-vehicles-with-bluetooth-app-control-remote-control-and-lcd-panel-automatic-altitude-compensation-5-l-1-3-gal-tank-p_010717726345" target="_blank" rel="noopener">VEVOR Diesel Heater</a></li>
+                        <li><a href="https://rvguardstore.com/products/2-receptacles-power-outlet-panel-20a-30a" target="_blank" rel="noopener">RVGUARD Power Outlet Panel</a></li>
+                        <li><a href="https://watts247.com/product/solar-panel-combiner-box-4-circuits-to-2/" target="_blank" rel="noopener">Watts247 Combiner Box</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </main>
 
+    <section class="section">
+        <div class="category-grid">
+            <!-- Card 4 -->
+            <div class="category-card">
+                <div class="card-image">RV & Mobile</div>
+                <div class="card-body">
+                    <div class="mini-label">Travel & Mobile Setup</div>
+                    <h2 class="card-title">RV + Mobile Living</h2>
+                    <p class="card-description">
+                        Great for mobile cabins, van setups, and planning power in a compact space while staying efficient and flexible.
+                    </p>
+                    <ul class="resource-list">
+                        <li><a href="https://bryantrv.com/index.html" target="_blank" rel="noopener">Bryant RV Services</a></li>
+                        <li><a href="https://www.youtube.com/watch?v=dl_8fBnIexk" target="_blank" rel="noopener">Full DIY Solar Install Video</a></li>
+                        <li><a href="https://www.youtube.com/watch?v=02BlKSziK5Q" target="_blank" rel="noopener">Easiest Shed You Can Build Yourself</a></li>
+                        <li><a href="https://www.youtube.com/watch?v=VguSt1IAmBM" target="_blank" rel="noopener">Expandable Off-Grid Solar Systems</a></li>
+                        <li><a href="https://mycarriertms.com/ui/welcome/tracking/" target="_blank" rel="noopener">MyCarrier Tracking</a></li>
+                        <li><a href="https://ext-web.ltl-xpo.com/public-app/shipments" target="_blank" rel="noopener">LTL Shipping Tracking</a></li>
+                        <li><a href="https://www.currentconnected.com/product/lynx-class-t-power-in-m10/" target="_blank" rel="noopener">Victron Battery Distribution</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="category-card">
+                <div class="card-image">Learning</div>
+                <div class="card-body">
+                    <div class="mini-label">Education & Research</div>
+                    <h2 class="card-title">Learn + Design</h2>
+                    <p class="card-description">
+                        Forums, calculators, and diagrams to help plan system sizing, understanding solar behavior, and troubleshooting issues before buying parts.
+                    </p>
+                    <ul class="resource-list">
+                        <li><a href="https://diysolarforum.com/" target="_blank" rel="noopener">DIY Solar Power Forum</a></li>
+                        <li><a href="https://app.diagrams.net/" target="_blank" rel="noopener">draw.io Diagram Tool</a></li>
+                        <li><a href="https://circuitwizard.bluesea.com/" target="_blank" rel="noopener">BlueSea Circuit Wizard</a></li>
+                        <li><a href="https://www.rapidtables.com/convert/power/BTU_to_Watt.html" target="_blank" rel="noopener">BTU to Watt Calculator</a></li>
+                        <li><a href="https://www.calculateme.com/length/inches/to-feet/44" target="_blank" rel="noopener">Inches to Feet Converter</a></li>
+                        <li><a href="https://www.suncalc.org/" target="_blank" rel="noopener">SunCalc</a></li>
+                        <li><a href="https://www.youtube.com/watch?v=dl_8fBnIexk" target="_blank" rel="noopener">DIY Solar Install Video</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="category-card">
+                <div class="card-image">Planning</div>
+                <div class="card-body">
+                    <div class="mini-label">System Planning</div>
+                    <h2 class="card-title">Planning &amp; Sizing</h2>
+                    <p class="card-description">
+                        Tools for configuring loads, wiring, and panel placement as the project grows from a small setup into a larger system.
+                    </p>
+                    <ul class="resource-list">
+                        <li><a href="https://www.powelab.org/solar/solar-panel-tilt-calculator" target="_blank" rel="noopener">Panel Tilt Calculator</a></li>
+                        <li><a href="https://everydaysolar.com/calculators/" target="_blank" rel="noopener">Everyday Solar Calculators</a></li>
+                        <li><a href="https://energyreckon.com/" target="_blank" rel="noopener">Generator and Solar Backup Sizing</a></li>
+                        <li><a href="https://www.suncalc.org/#/43.2075,-123.3576,10/2026.08.06/11:40/1/3" target="_blank" rel="noopener">Sun Position Example</a></li>
+                        <li><a href="https://www.suncalc.org/#/27.6936,-97.5195,3/2026.09.03/20:42/1/3" target="_blank" rel="noopener">SunCalc — Custom Location Example</a></li>
+                        <li><a href="https://inventory.powerzone.com/resources/centrifugal-pump-power-calculator/" target="_blank" rel="noopener">Pump Power Calculator</a></li>
+                        <li><a href="https://gardenplanner.net/app/" target="_blank" rel="noopener">Garden Layout Planning</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="bottom-note">
+        This page combines the most relevant solar and DIY resources into useful categories for off-grid systems, property building, RV/mobile setups, gear, and planning tools.
+    </div>
+
 </body>
 </html>
-
