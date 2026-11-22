@@ -14,7 +14,7 @@
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-  background: #f6f7f4;
+  background: #dce8d8;
   color: #202124;
   line-height: 1.6;
 }
@@ -48,33 +48,30 @@ header {
   max-width: 480px;
   margin: 20px auto 0;
   overflow: hidden;
-  background: linear-gradient(135deg, #2f5d3d, #7ca778);
+  background: #7ca778;
   border: 1px solid #2f5d3d;
   border-radius: 12px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
 }
 
-.resource-menu a,
-.resource-menu a:link,
-.resource-menu a:visited,
-.resource-menu a:hover,
-.resource-menu a:active,
-.resource-menu a:focus {
-  color: #ffffff !important;
-  background: transparent;
-  text-decoration: none;
-  -webkit-text-fill-color: #ffffff;
-}
-
-.resource-menu .menu-cell {
+.resource-menu .menu-cell,
+.resource-menu .menu-cell:link,
+.resource-menu .menu-cell:visited,
+.resource-menu .menu-cell:hover,
+.resource-menu .menu-cell:active,
+.resource-menu .menu-cell:focus {
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 48px;
   padding: 10px 6px;
-  border-right: 1px solid rgba(255, 255, 255, 0.25);
+  background: #7ca778;
+  color: #fff !important;
+  -webkit-text-fill-color: #fff;
+  text-decoration: none;
   font-weight: 700;
   text-align: center;
+  border-right: 1px solid rgba(255, 255, 255, 0.35);
 }
 
 .resource-menu .menu-cell:last-child {
